@@ -1,0 +1,57 @@
+intro: >
+  TraceME is a desktop app for tracking objects through videos. You mark each object on a few
+  frames (a click or a box is enough, and SAM2 turns it into a precise outline), then TraceME
+  follows every object through the whole video with SAM2 or SAM3 and gives you the results:
+  per-frame masks, an annotated video, and a table of each object's area, position and size over
+  time. It's built for behaviour and phenotyping experiments, where you need the same animals,
+  cells or parts followed reliably across thousands of frames, without writing any code.
+
+workflow:
+  - icon: "📁"
+    title: Create a project
+    text: A project holds your videos, the objects you track and all annotations and results.
+  - icon: "🎞️"
+    title: Import videos
+    text: TraceME extracts the frames, optionally only every Nth frame, part of the video or a cropped area.
+  - icon: "✨"
+    title: Annotate
+    text: Click an object on a frame and SAM2 outlines it. A few annotated frames per object is enough.
+  - icon: "📈"
+    title: Track & export
+    text: Track every object through the video, check and fix the results, then export a video, masks or metrics.
+
+faq:
+  - q: Should I download the CPU or the CUDA version?
+    a: >
+      CUDA if your computer has an NVIDIA graphics card: tracking is many times faster. Otherwise the
+      CPU version, which works everywhere but is slow for long videos. On a Mac there's only one
+      version, and it uses the Apple GPU automatically.
+  - q: Which SAM model should I use?
+    a: >
+      Start with **SAM2.1 Small** or **Base+**. Larger models are more accurate but slower and need
+      more memory. Tracking needs a **SAM2.1** model (or SAM3); the original SAM2 models only work for
+      annotating single frames.
+  - q: Tracking is slow / runs on the CPU although I have a GPU.
+    a: >
+      Check **Settings > Models > Run on**: Auto uses the GPU when one is available. The Run Tracking
+      window shows which device a run will use. On Windows and Linux you need the **CUDA** version of
+      TraceME for NVIDIA GPUs.
+  - q: My videos take up a lot of disk space.
+    a: >
+      Every frame is stored as an image. When importing, keep only every Nth frame, only the part of the
+      video you need, or crop to the area of interest. The import window shows how many frames you'll get.
+  - q: An object was lost or the mask is wrong on some frames.
+    a: >
+      In the Tracking window, frames where an object was lost are red. Add an annotation on such a frame
+      in the main window and track that range again, or fix the frame directly with **Edit > Edit Masks**.
+  - q: Can I undo deleting an object?
+    a: >
+      No. Deleting an object removes it and all its annotations in every video, and can't be undone. Rename
+      it instead if you only want to change its name.
+  - q: Windows warns that the installer is from an unknown publisher / macOS won't open the app.
+    a: >
+      The builds aren't code-signed yet. On Windows click **More info > Run anyway**. On macOS right-click
+      TraceME in Applications and choose **Open** the first time.
+  - q: Where are the log files?
+    a: >
+      **Help > Show Log Folder** in the app. Attach the latest log when you report a problem.
