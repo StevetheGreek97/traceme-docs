@@ -12,7 +12,6 @@ with col2:
     st.caption("Annotate video frames with SAM2 and track objects through whole videos.")
 
 st.markdown(get_text("intro"))
-st.page_link("pages/1_Install_and_Setup.py", label="Download TraceME", icon="⬇️")
 
 st.divider()
 st.markdown("### How it works")
